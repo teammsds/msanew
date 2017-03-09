@@ -25,13 +25,13 @@ class CreatePlayersTable extends Migration
                 $table->string('p_email');
                 $table->string('p_phone');
                 $table->string('p_estatus'); //player eligibility status
-                $table->integer('t_id')->unsigned();
+                $table->integer('tm_id')->unsigned();
                 $table->integer('s_id')->unsigned();
                 $table->timestamps();
             });
 
             Schema::table('players', function (Blueprint $table) {
-                $table->foreign('t_id')->references('t_id')->on('teams')->onDelete('cascade');
+                $table->foreign('tm_id')->references('tm_id')->on('teams')->onDelete('cascade');
             });
 
             Schema::table('players', function (Blueprint $table) {
