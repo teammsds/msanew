@@ -16,12 +16,12 @@ class CreateFoulsTable extends Migration
             Schema::create('fouls', function (Blueprint $table) {
                 $table->integer('y_card');
                 $table->integer('r_card');
-                $table->integer('p_id')->unsigned();
+                $table->integer('player_id')->unsigned();
                 $table->timestamps();
             });
 
             Schema::table('fouls', function (Blueprint $table) {
-                $table->foreign('p_id')->references('p_id')->on('players')->onDelete('cascade');
+                $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
             });
         }
         //

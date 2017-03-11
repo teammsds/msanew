@@ -13,7 +13,7 @@ class CreateFieldsTable extends Migration
     public function up()
     {
         Schema::create('fields', function (Blueprint $table) {
-            $table->increments('f_id');
+            $table->increments('id');
             $table->integer('f_number');
             $table->string('f_name');
             $table->string('f_street');

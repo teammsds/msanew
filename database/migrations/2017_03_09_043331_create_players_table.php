@@ -14,7 +14,7 @@ class CreatePlayersTable extends Migration
     {
         {
             Schema::create('players', function (Blueprint $table) {
-                $table->increments('p_id');
+                $table->increments('id');
                 $table->integer('p_number');
                 $table->string('p_lname');
                 $table->string('p_fname');
@@ -25,17 +25,17 @@ class CreatePlayersTable extends Migration
                 $table->string('p_email');
                 $table->string('p_phone');
                 $table->string('p_estatus'); //player eligibility status
-                $table->integer('tm_id')->unsigned();
-                $table->integer('s_id')->unsigned();
+                $table->integer('team_id')->unsigned();
+                $table->integer('school_id')->unsigned();
                 $table->timestamps();
             });
 
             Schema::table('players', function (Blueprint $table) {
-                $table->foreign('tm_id')->references('tm_id')->on('teams')->onDelete('cascade');
+                $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             });
 
             Schema::table('players', function (Blueprint $table) {
-                $table->foreign('s_id')->references('s_id')->on('schools')->onDelete('cascade');
+                $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
             });
         }
         //

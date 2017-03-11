@@ -13,7 +13,7 @@ class CreateTournamentsTable extends Migration
     public function up()
     {
             Schema::create('tournaments', function (Blueprint $table) {
-                $table->increments('to_id');
+                $table->increments('id');
                 $table->integer('to_number');
                 $table->string('to_name');
                 $table->string('to_location');

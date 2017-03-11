@@ -14,8 +14,8 @@ class CreateTeamsTable extends Migration
     {
         {
             Schema::create('teams', function (Blueprint $table) {
-                $table->increments('tm_id');
-                $table->integer('s_id')->unsigned();
+                $table->increments('id');
+                $table->integer('school_id')->unsigned();
                 $table->integer('tm_number');
                 $table->string('tm_name');
                 $table->string('tm_coach');
@@ -25,7 +25,7 @@ class CreateTeamsTable extends Migration
             });
 
             Schema::table('schools', function (Blueprint $table) {
-                $table->foreign('s_id')->references('s_id')->on('schools')->onDelete('cascade');
+                $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
             });
         }
         //

@@ -14,7 +14,7 @@ class CreateMatchesTable extends Migration
     {
         {
             Schema::create('matches', function (Blueprint $table) {
-                $table->increments('m_id');
+                $table->increments('id');
                 $table->integer('m_number');
                 $table->integer('m_homeid');
                 $table->integer('m_guestid');
@@ -24,17 +24,17 @@ class CreateMatchesTable extends Migration
                 $table->string('m_ref_com'); //match referee comments
                 $table->integer('m_homeg'); // match home team goals
                 $table->integer('m_guestg');// match guest team goals
-                $table->integer('f_id')->unsigned();
-                $table->integer('t_id')->unsigned();
+                $table->integer('field_id')->unsigned();
+                $table->integer('tournament_id')->unsigned();
                 $table->timestamps();
             });
 
             Schema::table('matches', function (Blueprint $table) {
-                $table->foreign('f_id')->references('f_id')->on('fields')->onDelete('cascade');
+                $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade');
             });
 
             Schema::table('matches', function (Blueprint $table) {
-                $table->foreign('t_id')->references('t_id')->on('tournaments')->onDelete('cascade');
+                $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
             });
         }
         //

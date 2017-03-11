@@ -13,7 +13,7 @@ class CreateRefereesTable extends Migration
     public function up()
     {
         Schema::create('referees', function (Blueprint $table) {
-            $table->increments('r_id');
+            $table->increments('id');
             $table->integer('r_number');
             $table->string('r_lname');
             $table->string('r_fname');

@@ -22,6 +22,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('schools','SchoolController');
+Route::resource('teams','TeamController');
 
 Route::get('php-version', function()
 {
@@ -54,6 +56,8 @@ Route::get('laravel-version', function()
 
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
+
+
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
