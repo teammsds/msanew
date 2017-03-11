@@ -22,8 +22,11 @@
     @yield('styles')
 
     <style>
-        body { font-family: 'Lato'; }
-        .fa-btn { margin-right: 6px; }
+        body { font-family: 'Lemonada';font-weight: bold;font-color: #FFFFFF; }
+        .fa-btn { margin-right: 20px; }
+
+        body {background-color: #17202A  ;}
+        
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 </head>
@@ -37,10 +40,10 @@
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <script src="{{ elixir('js/all.js') }}"></script>
-    <div class="container">
+    <!-- <div class="container">
         <a href="{{ action('SchoolController@index') }}">Schools</a> |
         <a href="{{ action('TeamController@index') }}">Teams</a> |
-    </div>
+    </div> -->
     <!-- Navigation Bar -->
     @include('common.nav')
 

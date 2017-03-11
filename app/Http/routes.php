@@ -53,7 +53,7 @@ Route::get('laravel-version', function()
     Route::get( 'change-password', 'Auth\AuthController@updatePassword');
 
     Route::get('/home', 'HomeController@index');
-
+    Route::get('/home', 'HomeController@display');
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
 

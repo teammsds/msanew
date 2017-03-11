@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
+<nav class="navbar navbar-light " style="background-color: #FDFEFE; color: #F5F5F5 ">
+    <div class="container"> 
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
@@ -12,18 +12,25 @@
 
             <!-- Branding Image -->
             {{--<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>--}}
-            <div class="pull-left"><img src="images/UNO-icon-color.png" style="height: 48px;"></div>
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Missouri Soccer Association
-            </a>
-
-        </div>
+            <div class="pull-left"><img src="images/ball.jpg" style="height: 45px;"></div>
+           <!--  <a class="navbar-brand" href="{{ url('/') }}">
+                MSA
+            </a> -->
+              <!--  Buttons at navbar -->
+             <ul class="nav navbar-nav">
+             <li class="active"><a href="{{url('/')}}">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="{{action('HomeController@display')}}">About MSA</a></li>
+            <li><a href="#">Table</a></li>
+            <li><a href="#">Stats</a></li>
+            <li><a href="{{ action('SchoolController@index') }}">School</a></li>
+            <li><a href="{{ action('TeamController@index') }}">Team</a></li>
+            </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             @if (Auth::check())
                     <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
+                
                 {{-- Menu for Users with Administration Role Only --}}
                 @role('admin')
                 <li class="dropdown">

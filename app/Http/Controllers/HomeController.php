@@ -20,15 +20,23 @@ use Auth;
 
 class HomeController extends Controller
 {
+
+    // about page display on main page
+    public function display()
+    {
+
+        return view('common.about');
+    }
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
