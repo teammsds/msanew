@@ -18,42 +18,23 @@
             </a> -->
               <!--  Buttons at navbar -->
              <ul class="nav navbar-nav">
-             <li class="active"><a href="{{url('/')}}">Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="{{action('HomeController@display')}}">About MSA</a></li>
-            <li><a href="#">Table</a></li>
-            <li><a href="#">Stats</a></li>
-            <li><a href="{{ action('SchoolController@index') }}">School</a></li>
-            <li><a href="{{ action('TeamController@index') }}">Team</a></li>
+                 <li class="active"><a href="{{url('/')}}"><h2 style="font-size:25px"><b>Home</b></h2> <span class="sr-only">(current)</span></a></li>
+                 <li><a href="{{action('AboutController@index')}}"><h2 style="font-size:25px"><b>About MSA</b></h2></a></li>
+            <li><a href="#"><h2 style="font-size:25px"><b>Table</b></h2></a></li>
+            <li><a href="#"><h2 style="font-size:25px"><b>Stats</b></h2></a></li>
+            <li><a href="{{ action('SchoolController@index') }}"><h2 style="font-size:25px"><b>Schools</b></h2></a></li>
+            <li><a href="{{ action('TeamController@index') }}"><h2 style="font-size:25px"><b>Teams</b></h2></a></li>
             </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            @if (Auth::check())
-                    <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                
-                {{-- Menu for Users with Administration Role Only --}}
-                @role('admin')
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
-                    <ul class="dropdown-menu multi level" role="menu">
-                        <li><a href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-user"></i>Users</a></li>
-                        <li><a href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-users"></i>Roles</a></li>
-                        {{--<li class="divider"></li>--}}
-                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
-                    </ul>
-                </li>
-                @endrole
-            </ul>
-            @endif
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     {{--<li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-lg fa-fw fa-sign-in"></i>Login</a></li>--}}
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('/login') }}"><h2 style="font-size:25px"><b>Login</b></h2></a></li>
+                    <li><a href="{{ url('/register') }}"><h2 style="font-size:25px"><b>Register</b></h2></a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>

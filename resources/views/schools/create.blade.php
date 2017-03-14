@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
 <h1>Create New School</h1>
 {!! Form::open(['url' => 'schools']) !!}
@@ -7,7 +7,7 @@
     {!! Form::text('s_name',null,['class'=>'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('s_number', 'School ID:') !!}
+    {!! Form::label('s_number', 'School No:') !!}
     {!! Form::text('s_number',null,['class'=>'form-control']) !!}
 </div>
 <div class="form-group">

@@ -27,14 +27,11 @@ class User extends Authenticatable
 {
     // ToDo: This needs to checked to remove the below SoftDelete comment once the traits clash is fixed.
 //    use SoftDeletes;
-    use EntrustUserTrait; // Entrust Package requires this trait
-
     /**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -42,7 +39,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'active', 'created_by', 'updated_by'
+        'name', 'email', 'password', 'role' , 'active'
     ];
 
     /**
@@ -59,10 +56,6 @@ class User extends Authenticatable
      *
      * @return array
      */
-    public function getRoleListAttribute()
-    {
-        return $this->roles->lists('id')->all();
-    }
 
     /**
      * Returns if the user is active or not (true/false)

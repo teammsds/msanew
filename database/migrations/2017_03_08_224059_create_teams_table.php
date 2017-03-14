@@ -24,7 +24,7 @@ class CreateTeamsTable extends Migration
                 $table->timestamps();
             });
 
-            Schema::table('schools', function (Blueprint $table) {
+            Schema::table('teams', function (Blueprint $table) {
                 $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
             });
         }

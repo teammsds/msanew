@@ -4,11 +4,11 @@
 </body>
 @section('content')
     <div>
-    <h1>Schools</h1>
-    <h4> Check your school in the List</h4>
+    <h1 style="color:rosybrown">Schools</h1>
+    <h4 style="color:rosybrown"> Check your school in the List</h4>
     <a href="{{url('/schools/create')}}" class="btn btn-success">Create New School?</a>
     <hr>
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-bordered table-hover">
         <thead>
         <tr class="bg-info">
             <th>Number</th>
@@ -23,7 +23,7 @@
             <th colspan="3">Actions</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody style="background-color:darkseagreen">
         @foreach ($schools as $school)
             <tr>
                 <td>{{ $school->s_number }}</td>

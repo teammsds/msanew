@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Missouri Soccer association</title>
+    <title style="font-size:100px">Missouri Soccer association</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -26,64 +26,61 @@
         .fa-btn { margin-right: 20px; }
 
         body {background-color: #17202A  ;}
-        
+
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 </head>
 
 <body id="app-layout">
-    <!-- JavaScripts -->
+<!-- JavaScripts -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <script src="{{ elixir('js/all.js') }}"></script>
-    <!-- <div class="container">
-        <a href="{{ action('SchoolController@index') }}">Schools</a> |
-        <a href="{{ action('TeamController@index') }}">Teams</a> |
-    </div> -->
-    <!-- Navigation Bar -->
-    @include('common.nav')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src="{{ elixir('js/all.js') }}"></script>
 
-    <!-- Content -->
-    @yield('content')
+@include('common.nav')
 
-    <style>
-        form {margin: 0px;}
-        ul.pagination { margin: 0px !important; }
-        ul.pagination li { margin: 0px !important; padding: 0px !important }
-        div.dataTables_length select { padding: 5px !important; padding-right: 15px !important; }
+<!-- Content -->
+@yield('content')
 
-        /* required fields have a red border */
-        .errorClass { border:  1px solid red; }
+<style>
+    form {margin: 0px;}
+    ul.pagination { margin: 0px !important; }
+    ul.pagination li { margin: 0px !important; padding: 0px !important }
+    div.dataTables_length select { padding: 5px !important; padding-right: 15px !important; }
 
-        /* remove panel bottom margin */
-        .panel { margin-bottom: 0px !important;  }
-        button.btn { margin-right: 1px;}
+    /* required fields have a red border */
+    .errorClass { border:  1px solid red; }
 
-        /* menu bar */
-        .dropdown-submenu { position: relative; }
-        .dropdown-submenu>.dropdown-menu { top: 0; left: 100%; margin-top: -6px; margin-left: -1px;
-            -webkit-border-radius: 0 6px 6px 6px; -moz-border-radius: 0 6px 6px; border-radius: 0 6px 6px 6px; }
+    /* remove panel bottom margin */
+    .panel { margin-bottom: 0px !important;  }
+    button.btn { margin-right: 1px;}
 
-        .dropdown-submenu:hover>.dropdown-menu { display: block; }
-        .dropdown-submenu>a:after { display: block; content: " "; float: right; width: 0; height: 0;
-            border-color: transparent; border-style: solid; border-width: 5px 0 5px 5px; border-left-color: #ccc;
-            margin-top: 5px; margin-right: -10px; }
+    /* menu bar */
+    .dropdown-submenu { position: relative; }
+    .dropdown-submenu>.dropdown-menu { top: 0; left: 100%; margin-top: -6px; margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px; -moz-border-radius: 0 6px 6px; border-radius: 0 6px 6px 6px; }
 
-        .dropdown-submenu:hover>a:after { border-left-color: #fff; }
-        .dropdown-submenu.pull-left { float: none; }
-        .dropdown-submenu.pull-left>.dropdown-menu { left: -100%; margin-left: 10px;
-            -webkit-border-radius: 6px 0 6px 6px; -moz-border-radius: 6px 0 6px 6px; border-radius: 6px 0 6px 6px; }
+    .dropdown-submenu:hover>.dropdown-menu { display: block; }
+    .dropdown-submenu>a:after { display: block; content: " "; float: right; width: 0; height: 0;
+        border-color: transparent; border-style: solid; border-width: 5px 0 5px 5px; border-left-color: #ccc;
+        margin-top: 5px; margin-right: -10px; }
 
-    </style>
+    .dropdown-submenu:hover>a:after { border-left-color: #fff; }
+    .dropdown-submenu.pull-left { float: none; }
+    .dropdown-submenu.pull-left>.dropdown-menu { left: -100%; margin-left: 10px;
+        -webkit-border-radius: 6px 0 6px 6px; -moz-border-radius: 6px 0 6px 6px; border-radius: 6px 0 6px 6px; }
 
-    <!-- Scripts -->
-    @yield('scripts')
+</style>
 
-    <!-- Footer -->
-    @yield('footer');
+<!-- Scripts -->
+@yield('scripts')
+
+<!-- Footer -->
+@yield('footer');
+
 </body>
 </html>

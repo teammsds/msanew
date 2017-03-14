@@ -48,14 +48,22 @@ Route::get('laravel-version', function()
 */
 
 //Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-    Route::post('change-password', 'Auth\AuthController@updatePassword');
-    Route::get( 'change-password', 'Auth\AuthController@updatePassword');
+Route::auth();
+Route::post('change-password', 'Auth\AuthController@updatePassword');
+Route::get( 'change-password', 'Auth\AuthController@updatePassword');
 
-    Route::get('/home', 'HomeController@index');
-    Route::get('/home', 'HomeController@display');
-    Route::resource('users', 'UsersController');
-    Route::resource('roles', 'RolesController');
+Route::get('/control', 'RegisterController@index');
+Route::get('/login', 'Auth\AuthController@authenticated');
+Route::get('/home', 'HomeController@index');
+Route::get('/about', 'AboutController@index');
+Route::resource('users', 'UsersController');
+Route::resource('roles', 'RolesController');
+Route::resource('admin', 'AdminController');
+Route::resource('referee', 'RefereeController');
+Route::resource('coach', 'CoachController');
+Route::resource('player', 'PlayerController');
+
+Route::auth();
 
 
 
@@ -67,3 +75,15 @@ Route::get('laravel-version', function()
 //        'uses' => 'CommentsController@addforplanofstudy']);
 
 //});
+
+
+
+
+
+
+
+
+
+
+
+

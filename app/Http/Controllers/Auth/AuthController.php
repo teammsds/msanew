@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -23,7 +24,7 @@ class AuthController extends Controller
     | This controller handles the registration of new users, as well as the
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
-    |
+    |ko
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
@@ -33,10 +34,6 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-    protected $redirectPath = '/home';
-    protected $loginPath = '/login';
-
     /**
      * Create a new authentication controller instance.
      *
@@ -44,8 +41,27 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'updatePassword']]);
+        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'updatePassword','login']]);
     }
+
+    protected function authenticated($request, $user)
+    {
+        if($user->role === 'Admin') {
+            return redirect()->intended('/admin');
+        } else {
+            if($user->role === 'Coach') {
+                return redirect()->intended('/coach');
+            }else {
+                if($user->role === 'Referee') {
+                    return redirect()->intended('/referee');
+                } else {
+                    return redirect()->intended('/player');
+                }
+            }
+        }
+    }
+
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -74,6 +90,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'role' => $data['role']
         ]);
     }
 
@@ -84,6 +101,7 @@ class AuthController extends Controller
      * @param  void
      * @return void
      */
+
     public function updatePassword()
     {
         if (Auth::check())

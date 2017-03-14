@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     protected $fillable=[
+        'school_id',
         'tm_number',
         'tm_name',
         'tm_coach',
